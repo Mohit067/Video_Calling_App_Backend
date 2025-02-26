@@ -15,8 +15,7 @@
         "member-access": [true, "no-public"],
         "indent": [true, "spaces", 2],
         "no-var-requires": true,
-        "prefer-const": true,
-        "max-line-length": [true, 100]
+        "prefer-const": true
     }
   }
   
