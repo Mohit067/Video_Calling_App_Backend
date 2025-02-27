@@ -6,7 +6,6 @@ const rooms: Record<string, string[]> = {};
 
 export const roomHandler = ( socket: Socket ) => {
 
-    
     const createRoom = () => {
         const roomId = UUIDv4();
 
@@ -25,6 +24,10 @@ export const roomHandler = ( socket: Socket ) => {
             console.log('added peer to room', rooms);
             socket.join(roomId);
         }
+
+        socket.on('ready', () => {
+            socket.to(roomId).emit('user-joined', {peerId});
+        });
 
         socket.emit('get-users', {
             roomId,
